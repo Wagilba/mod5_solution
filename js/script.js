@@ -139,13 +139,21 @@ function chooseRandomCategory (categories) {
 
 
 // Load the menu categories view
-dc.loadMenuCategories = function () {
+/*dc.loadMenuCategories = function () {
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
     allCategoriesUrl,
     buildAndShowCategoriesHTML);
 };
-
+*/
+$dc.loadMenuCategories = function() {
+  $.getJSON('json/menu.json', function(data) {
+    var categories = data.categories;
+    var randomCategory = categories[Math.floor(Math.random() * categories.length)];
+    $dc.loadMenuItems(randomCategory.short_name);
+  });
+};
+  
 
 // Load the menu items view
 // 'categoryShort' is a short_name for a category

@@ -349,21 +349,6 @@ function insertItemPortionName(html,
   return html;
 }
 
-function loadRandomMenuItems() {
-  // Define an array of category short_names to choose from
-  var categories = ["L", "D", "A", "B", "S"];
-  
-  // Generate a random index to choose a category from the array
-  var randomIndex = Math.floor(Math.random() * categories.length);
-  
-  // Get the randomly chosen category short_name
-  var randomCategoryShortName = categories[randomIndex];
-  
-  // Call the loadMenuItems function with the random category short_name
-  $dc.loadMenuItems(randomCategoryShortName);
-}
-  
-
 global.$dc = dc;
 
 })(window);
